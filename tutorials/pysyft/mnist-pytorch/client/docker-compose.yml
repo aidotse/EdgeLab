@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  alice:
+    image: client
+    environment:
+      - WORKER_ID=alice
+      - PORT=8777
+    ports:
+      - 8777:8777
+
+  bob:
+    image: client
+    environment:
+      - WORKER_ID=bob
+      - PORT=8778
+    ports:
+      - 8778:8778
+  
+
+  charlie:
+    image: client
+    environment:
+      - WORKER_ID=charlie
+      - PORT=8779
+    ports:
+      - 8779:8779
