@@ -13,137 +13,38 @@ All machines residing on the same local network. Note that the IP addresses in t
 
 This is basically an extension of the [Flower quick-pytorch example](https://github.com/adap/flower/tree/main/examples/quickstart_pytorch). We recommend to go through this example before proceeding here. 
 
-## Clone this repo on the Server (The virual machine)
-On the database, reducer and combiner host machines; clone and checkout appropriate FEDn version
+## Setup the Server (The virual machine)
+First connect to the VM via SSH and then run the following commands in any folder you would like.
 ````bash
-git clone https://github.com/scaleoutsystems/fedn.git
-cd fedn
-git checkout tags/v0.2.3 -b v0.2.3
+git clone https://github.com/aidotse/EdgeLab.git
+cd EdgeLab/tutorials/flower/mnist-pytorch/docker_edgelab/server
+````
+To start the serverdocker now run these comands
+````bash
+sudo docker build --tag server-docker 
+docker run -p 8080:8080 -it server-docker /bin/bash
+````
+This will first build a docker Image with the tag server-docker, then the second command will create a container and start it. 
+The server is now prepared and you can start it by running
+````bash
+python3 server.py
 ````
 
-## Deploy the base services (Minio and MongoDB)
-Log into the database host machine.
 
-Clone the FEDn repo and checkout the right version, see the 'Clone the FEDn repo' section above.
-
-The first time, for Docker communication do
+## Setup the client_1 (The AGX Jetson Xavier)
+First connect to the AGX via SSH and then run the following commands in any folder you would like.
 ````bash
-docker network create fedn_default 
+git clone https://github.com/aidotse/EdgeLab.git
+cd EdgeLab/tutorials/flower/mnist-pytorch/docker_edgelab/client
 ````
-For reference see the [FEDn documentation](https://github.com/scaleoutsystems/fedn).
-
-Build and launch the database inside a terminal multiplexer (eg., tmux)
+To start the clientdocker now run these comands
 ````bash
-docker-compose -f config/base-services.yaml up --build
+sudo bash build.sh
+sudo bash run.sh
 ````
-Omit the '--build' flag after the first time.
-
-## Reducer
-Log into the reducer host machine.
-
-Clone the FEDn repo and checkout the right version, see the 'Clone the FEDn repo' section above.
-
-Copy the settings files
+This will first build a docker Image with the tag client-docker, then the second command will create a container and start it. 
+The server is now prepared and you can connect it to the server by running
 ````bash
-cp config/settings-reducer.yaml.template config/settings-reducer.yaml
-cp config/extra-hosts-reducer.yaml.template config/extra-hosts-reducer.yaml
+python3 client.py ip.address.server:8080
 ````
-
-In 'config/settings-reducer.yaml' set the IP address of the database
-````bash
-host: ip.address.database
-storage_hostname: ip.address.database
-````
-
-In 'config/extra-hosts-reducer.yaml' set the IP of the combiner
-````bash
-combiner: ip.address.combiner
-````
-
-Build and launch the reducer inside a terminal multiplexer (eg., tmux)
-````bash
-docker-compose -f config/reducer-dev.yaml -f config/extra-hosts-reducer.yaml up --build
-````
-Omit the '--build' flag after the first time.
-
-## Combiner
-Log into the combiner host machine.
-
-Clone the FEDn repo and checkout the right version, see the 'Clone the FEDn repo' section above.
-
-Copy the settings files
-````bash
-cp config/settings-combiner.yaml.template config/settings-combiner.yaml
-````
-
-In 'config/settings-combiner.yaml' set the IP address of the reducer
-````bash
-discover_host: ip.address.reducer
-````    
-
-Build and launch the combiner inside a terminal multiplexer (eg., tmux)
-````bash
-docker-compose -f config/combiner-dev.yaml up --build
-````
-Omit the '--build' flag after the first time.
-
-## Preparations for the client
-On, for example, your desktop clone the EdgeLab, this, repo
-````bash
-git clone git@github.com:aidotse/EdgeLab.git
-cd tutorials/fedn/mnist-pytorch
-````
-
-Build the Docker image
-````bash
-sh ./package_client_code.sh
-````
-
-### Creating a compute package
-In order to package the model run
-````bash
-sh ./package_client_code.sh
-````
-The created 'package/client_code.tar.gz' file should be uploaded to the reducer via the FEDn dashboard.
-
-### Creating a new initial model
-In order to generate an initial model run
-````bash
-sh ./init_model.sh
-````
-The created 'package/initial_model.npz' file should be uploaded to the reducer via the FEDn dashboard.
-
-
-### Train and validate locally (centralized)
-Before deploying the model on the clients it is wise to test the models locally running 
-````bash
-sh ./training.sh
-````
-and
-````bash
-sh ./validate.sh.sh
-````
-
-## Clients
-Copy the 'client/fedn' directory to the clients.
-
-Log into the client host machines.
-
-Go to the '~client/fedn' directory.
-
-In 'remote/client.yaml' set the IP address of the reducer
-````bash
-discover_host: ip.address.reducer
-````
-
-Build the Docker image
-````bash
-sh ./build.sh
-````
-
-Start the clients
-````bash
-sh ./run.sh
-````
-Now you should be ready to start a simulation in the FEDn dashboard.
-
+<strong>Note that ip.address.server is the adress of the server.</strong>
