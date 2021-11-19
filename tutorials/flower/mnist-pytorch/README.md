@@ -17,7 +17,7 @@ First connect to the VM via SSH and then run the following commands in any folde
 git clone https://github.com/aidotse/EdgeLab.git
 cd EdgeLab/tutorials/flower/mnist-pytorch/docker_edgelab/server
 ````
-To start the serverdocker now run these comands
+To start the serverdocker now run these comands:
 ````bash
 sudo docker build --tag server-docker 
 docker run -p 8080:8080 -it server-docker /bin/bash
