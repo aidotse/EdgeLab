@@ -1,17 +1,17 @@
 # MNIST PyTorch - fully distributed federated learning
 In this tutorial we solve the [MNIST](http://yann.lecun.com/exdb/mnist/) classification problem in a federated setting using [FEDn](https://github.com/scaleoutsystems/fedn) with a minimal set-up; database, reducer, combiner and two clients. The classifier is implemented in [PyTorch](https://pytorch.org/) using the PyTorch [example](https://github.com/pytorch/examples/tree/master/mnist).
+# MNIST PyTorch - fully distributed federated learning
+In this tutorial we solve the [MNIST](http://yann.lecun.com/exdb/mnist/) classification problem in a federated setting using [Flower](https://github.com/adap/flower) with a minimal set-up; a server and two clients. The classifier is implemented in [PyTorch](https://pytorch.org/) using the PyTorch [example](https://github.com/pytorch/examples/tree/master/mnist). (There is also a tensorflow example in the github)
 
 | Machine/function     | Type           | IP address  |
 | ------------- |:-------------------------|:----------------|
-| Database      | virtual |  ip.address.database|
-| Reducer      | virtual      |   ip.address.reducer |
-| Combiner | virtual     |    ip.address.combiner |
+| Server      | virtual |  ip.address.server|
 | Client_1 | AGX Jetson Xavier     |  ip.address.client.1 |
 | Client_2 | AGX Jetson Xavier     |  ip.address.client.2 |
 
 All machines residing on the same local network. Note that the IP addresses in the table above are 'variables' used in this tutorial -you will have to use addresses appropriate for your set-up. 
 
-This is basically an extension of the [FEDn mnist-pytorch example](https://github.com/scaleoutsystems/examples/tree/main/mnist-pytorch). We recommend to go through this example before proceeding here.
+This is basically an extension of the [Flower quick-pytorch example](https://github.com/adap/flower/tree/main/examples/quickstart_pytorch). We recommend to go through this example before proceeding here. 
 
 ## Clone the FEDn repo
 On the database, reducer and combiner host machines; clone and checkout appropriate FEDn version
