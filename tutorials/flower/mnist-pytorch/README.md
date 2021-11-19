@@ -31,7 +31,7 @@ python3 server.py
 ````
 
 
-## Setup the client_1 (The AGX Jetson Xavier)
+## Setup the client_1 and 2(The AGX Jetson Xavier)
 First connect to the AGX via SSH and then run the following commands in any folder you would like.
 ````bash
 git clone https://github.com/aidotse/EdgeLab.git
@@ -48,3 +48,11 @@ The server is now prepared and you can connect it to the server by running
 python3 client.py ip.address.server:8080
 ````
 <strong>Note that ip.address.server is the adress of the server.</strong>
+
+Now SSH into the second AGX and do the axact same thing.
+
+## Check if it is working
+![image](https://user-images.githubusercontent.com/90322377/142621239-818c0687-ea0c-460e-8106-434b52093bc0.png)
+
+
+
