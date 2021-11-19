@@ -1,6 +1,4 @@
 # MNIST PyTorch - fully distributed federated learning
-In this tutorial we solve the [MNIST](http://yann.lecun.com/exdb/mnist/) classification problem in a federated setting using [FEDn](https://github.com/scaleoutsystems/fedn) with a minimal set-up; database, reducer, combiner and two clients. The classifier is implemented in [PyTorch](https://pytorch.org/) using the PyTorch [example](https://github.com/pytorch/examples/tree/master/mnist).
-# MNIST PyTorch - fully distributed federated learning
 In this tutorial we solve the [MNIST](http://yann.lecun.com/exdb/mnist/) classification problem in a federated setting using [Flower](https://github.com/adap/flower) with a minimal set-up; a server and two clients. The classifier is implemented in [PyTorch](https://pytorch.org/) using the PyTorch [example](https://github.com/pytorch/examples/tree/master/mnist). (There is also a tensorflow example in the github)
 
 | Machine/function     | Type           | IP address  |
