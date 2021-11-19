@@ -1,4 +1,4 @@
 # Fedn fully distributed tutorials
 
-Tutorials are based on [FEDn](https://github.com/scaleoutsystems/fedn).
+Tutorials are based on [Flower](https://github.com/adap/flower).
 
