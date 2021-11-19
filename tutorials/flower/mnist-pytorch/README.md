@@ -29,7 +29,7 @@ python3 server.py
 ````
 
 
-## Setup the client_1 and client_2(The AGX Jetson Xaviers)
+## Setup the client_1 and client_2 (The AGX Jetson Xaviers)
 First connect to the AGX via SSH and then run the following commands in any folder you would like.
 ````bash
 git clone https://github.com/aidotse/EdgeLab.git
