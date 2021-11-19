@@ -13,7 +13,7 @@ All machines residing on the same local network. Note that the IP addresses in t
 
 This is basically an extension of the [Flower quick-pytorch example](https://github.com/adap/flower/tree/main/examples/quickstart_pytorch). We recommend to go through this example before proceeding here. 
 
-## Clone the FEDn repo
+## Clone this repo on the Server (The virual machine)
 On the database, reducer and combiner host machines; clone and checkout appropriate FEDn version
 ````bash
 git clone https://github.com/scaleoutsystems/fedn.git
