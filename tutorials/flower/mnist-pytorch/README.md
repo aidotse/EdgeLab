@@ -50,7 +50,7 @@ python3 client.py ip.address.server:8080
 Now SSH into the second AGX and do the axact same thing.
 
 ## Check if it is working
-If the following loadingbar appears the clients is now training.
+If a loadingbar appears the clients is now training.
 ![image](https://user-images.githubusercontent.com/90322377/142621239-818c0687-ea0c-460e-8106-434b52093bc0.png)
 On the second line you can can check if the training happens on the cpu or the gpu. If it says cuda: 0 you are training on the GPU else it will say cpu.
 
