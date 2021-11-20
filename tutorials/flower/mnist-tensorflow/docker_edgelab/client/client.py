@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf
 
 import flwr as fl
-
+import sys
 
 SERVER_IP = sys.argv[1]
 
