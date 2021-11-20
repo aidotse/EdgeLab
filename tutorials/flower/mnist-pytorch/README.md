@@ -19,7 +19,7 @@ cd EdgeLab/tutorials/flower/mnist-pytorch/docker_edgelab/server
 ````
 To start the serverdocker now run these comands:
 ````bash
-sudo docker build --tag server-docker 
+sudo docker build --tag server-docker .
 docker run -p 8080:8080 -it server-docker /bin/bash
 ````
 This will first build a docker Image with the tag server-docker, then the second command will create a container and start it. 
