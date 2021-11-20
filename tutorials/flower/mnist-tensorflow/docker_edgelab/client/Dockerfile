@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorflow:21.11-tf2-py3
+FROM nvcr.io/nvidia/l4t-tensorflow:r32.6.1-tf2.5-py3
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
