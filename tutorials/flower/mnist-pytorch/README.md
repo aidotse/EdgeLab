@@ -45,7 +45,7 @@ The server is now prepared and you can connect it to the server by running
 ````bash
 python3 client.py ip.address.server:8080
 ````
-<strong>Note</strong>: ip.address.server is the adress of the server.
+<strong>Note</strong>: ip.address.server is the adress of the server i.e. the Virtual Machine.
 
 Now SSH into the second AGX and do the axact same thing.
 
