@@ -28,8 +28,8 @@ if __name__ == "__main__":
     strategy = SaveModelStrategy(
         fraction_fit=0.5,
         fraction_eval=0.5,
-        min_fit_clients=1,
-        min_available_clients=1,
+        min_fit_clients=2,
+        min_available_clients=2,
     )
 
     # Start server
