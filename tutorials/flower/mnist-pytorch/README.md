@@ -54,5 +54,5 @@ If a loadingbar appears the clients is now training.
 ![image](https://user-images.githubusercontent.com/90322377/142621239-818c0687-ea0c-460e-8106-434b52093bc0.png)
 On the second line you can can check if the training happens on the cpu or the gpu. If it says cuda: 0 you are training on the GPU else it will say cpu.
 
-
-
+## Saving the model and customising your strategy
+In this tutorial we customised the server strategy to save our models weights and you should be able to find them in your server-docker after the training. To find out more about how to change strategy or even customise it by yourself, visit flowers [docs](https://flower.dev/docs/strategies.html)
