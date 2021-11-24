@@ -112,7 +112,7 @@ def main():
     trainloader, testloader = load_data()
 
     # Flower client
-    class CifarClient(fl.client.NumPyClient):
+    class MnistClient(fl.client.NumPyClient):
         def get_parameters(self):
             return [val.cpu().numpy() for _, val in net.state_dict().items()]
 
@@ -135,7 +135,7 @@ def main():
 
     # Start client
     print("Connecting to " + SERVER_IP)
-    fl.client.start_numpy_client(SERVER_IP, client=CifarClient())
+    fl.client.start_numpy_client(SERVER_IP, client=MnistClient())
 
 
 if __name__ == "__main__":
