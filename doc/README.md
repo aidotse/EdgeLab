@@ -39,6 +39,12 @@ and then
 git push
 ````
 
+Go to your branch at the [EdgeLab rep](https://github.com/aidotse/EdgeLab). 
+
+Under 'Contribute' push 'Open Pull Request' 
+
+#and the push 'Create Pull Request', you do not need to leave a comment. 
+
 
 
 
