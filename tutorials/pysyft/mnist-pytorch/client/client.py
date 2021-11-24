@@ -10,7 +10,7 @@ from torchvision import datasets
 from torchvision import transforms
 from syft.frameworks.torch.fl import utils
 
-KEEP_LABELS_DICT = {
+KEEP_LABELS_DICT = { 
     "alice": [0, 1, 2, 3],
     "bob": [4, 5, 6],
     "charlie": [7, 8, 9],
