@@ -15,7 +15,7 @@ This is basically an extension of the [Flower quick-pytorch example](https://git
 First connect to the VM via SSH and then run the following commands in any folder you would like.
 ````bash
 git clone https://github.com/aidotse/EdgeLab.git
-cd EdgeLab/tutorials/flower/mnist-pytorch/docker_edgelab/server
+cd EdgeLab/tutorials/flower/mnist-pytorch/server
 ````
 To start the serverdocker now run these comands:
 ````bash
