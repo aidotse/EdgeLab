@@ -24,7 +24,7 @@ def main() -> None:
     )
 
     # Implement a Flower client
-    class MnistClient(fl.client.keras_client.KerasClient):
+    class MnistClient(fl.client.NumPyClient):
         def __init__(
             self,
             model: tf.keras.Model,
