@@ -23,8 +23,8 @@ This is basically an extension of the [Pystft mnist example](https://github.com/
 ## Clone the Edgelab repo
 On the server and client machines; clone the Edgelab repo:
 ````bash
-$ git clone https://github.com/aidotset/edgelab.git
-$ cd tutorial/pysyft/mnist-pytorch
+$ git clone https://github.com/aidotse/edgelab.git
+$ cd EdgeLab/tutorials/pysyft/mnist-pytorch
 ````
 
 ## Deploy the clients
@@ -38,7 +38,7 @@ Build and launch the client (Remember to specify client_port and worker_id)
 ````bash
 $ cd client
 $ docker build . -t client
-$ docker run -e PORT={CLIENT_PORT_HERE} -e WORKER_ID={CLIENT_WORKER_ID_HERE} -it -CLIENT_PORT:{CLIENT_PORT_HERE} client
+$ docker run -e PORT=CLIENT_PORT_HERE -e WORKER_ID=CLIENT_WORKER_ID_HERE -it -p CLIENT_PORT_HERE:CLIENT_PORT_HERE client
 ````
 
 ## Server
