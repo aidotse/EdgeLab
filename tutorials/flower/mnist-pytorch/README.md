@@ -33,7 +33,7 @@ python3 server.py
 First connect to the AGX via SSH and then run the following commands in any folder you would like.
 ````bash
 git clone https://github.com/aidotse/EdgeLab.git
-cd EdgeLab/tutorials/flower/mnist-pytorch/docker_edgelab/client
+cd EdgeLab/tutorials/flower/mnist-pytorch/client
 ````
 To start the clientdocker now run these comands
 ````bash
