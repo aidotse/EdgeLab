@@ -52,7 +52,7 @@ def train_on_batches(worker, batches, model_in, device, lr):
 
     """
     model = model_in.copy()
-    optimizer = optim.SGD(model.parameters(), lr=lr)  # TODO momentum is not supported at the moment
+    optimizer = optim.SGD(model.parameters(), lr=lr)
 
     model.train()
     model.send(worker)
@@ -80,8 +80,8 @@ def train_on_batches(worker, batches, model_in, device, lr):
             )
 
     if not loss_local:
-        loss = loss.get()  # <-- NEW: get the loss back
-    model.get()  # <-- NEW: get the model back
+        loss = loss.get()
+    model.get() 
     return model, loss
 
 
@@ -201,7 +201,6 @@ def define_and_get_arguments(args=sys.argv[1:]):
         "--use_virtual", action="store_true", help="if set, virtual workers will be used"
     )
 
-
     parser.add_argument(
         "--client_ip_1", type=str, default="localhost"
     )
@@ -210,10 +209,6 @@ def define_and_get_arguments(args=sys.argv[1:]):
         "--client_ip_2", type=str, default="localhost"
     )
 
-    #parser.add_argument(
-    #    "--client_ip_3", type=str, default="localhost"
-    #)
-
     parser.add_argument(
         "--client_port_1", type=int, default=8777
     )
@@ -221,10 +216,6 @@ def define_and_get_arguments(args=sys.argv[1:]):
     parser.add_argument(
         "--client_port_2", type=int, default=8778
     )
-
-    #parser.add_argument(
-    #    "--client_port_3", type=int, default=8779
-    #)
 
     args = parser.parse_args(args=args)
     return args
@@ -238,14 +229,11 @@ def main():
     if args.use_virtual:
         alice = VirtualWorker(id="alice", hook=hook, verbose=args.verbose)
         bob = VirtualWorker(id="bob", hook=hook, verbose=args.verbose)
-        #charlie = VirtualWorker(id="charlie", hook=hook, verbose=args.verbose)
     else:
         kwargs_websocket = {"hook": hook, "verbose": args.verbose}
         alice = WebsocketClientWorker(id="alice", host=args.client_ip_1, port=args.client_port_1, **kwargs_websocket)
         bob = WebsocketClientWorker(id="bob", host=args.client_ip_2,port=args.client_port_2, **kwargs_websocket)
-        #charlie = WebsocketClientWorker(id="charlie", host=args.client_ip_3, port=args.client_port_3, **kwargs_websocket)
 
-    #workers = [alice, bob, charlie]
     workers = [alice, bob]
 
     use_cuda = args.cuda and torch.cuda.is_available()
