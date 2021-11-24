@@ -52,7 +52,7 @@ class Net(nn.Module):
         return output
 
 
-def train(net, trainloader, epochs):
+def train(net, trainloader, epochs) -> None:
     """Train the network on the training set."""
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
