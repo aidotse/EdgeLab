@@ -101,7 +101,7 @@ def start_websocket_server_worker(
     return server
 
 
-def start_proc(participant, kwargs):  # pragma: no cover
+def start_proc(participant, kwargs): 
     """ helper function for spinning up a websocket participant """
 
     def target():
@@ -113,7 +113,7 @@ def start_proc(participant, kwargs):  # pragma: no cover
     return p
 
 
-def start_proc_steal_data_over_sockets(participant, kwargs):  # pragma: no cover
+def start_proc_steal_data_over_sockets(participant, kwargs):
     """ helper function for spinning up a websocket participant """
 
     def target():
@@ -179,7 +179,6 @@ if __name__ == "__main__":
     # Hook and start server
     hook = sy.TorchHook(torch)
 
-    # server = start_proc(WebsocketServerWorker, kwargs)
     if args.notebook == "normal" or args.notebook == "mnist" or args.notebook == "steal_data":
         kwargs = {
             "id": args.id,
