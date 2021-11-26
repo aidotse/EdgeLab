@@ -17,7 +17,11 @@ import sys
 warnings.filterwarnings("ignore", category=UserWarning)
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-SERVER_IP = sys.argv[1]
+if len(sys.argv) >= 2:
+    SERVER_IP = sys.argv[1]
+else:
+    SERVER_IP = os.getenv('SERVER_IP') 
+
 
 print(DEVICE)
 
