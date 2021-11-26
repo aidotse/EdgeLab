@@ -36,8 +36,9 @@ To start the clientdocker now run these comands
 sudo bash build.sh
 sudo bash run.sh ip.address.server:8080
 ````
+<strong>Note</strong>: ip.address.server is the adress of the server i.e. the Virtual Machine.<break>
 This will first build a docker Image with the tag client-docker, then the second command will create a container and start the container with a running client.
-<strong>Note</strong>: ip.address.server is the adress of the server i.e. the Virtual Machine.
+
 
 Now SSH into the second AGX and do the axact same thing.
 
