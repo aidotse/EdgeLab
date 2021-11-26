@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     # Start server
     fl.server.start_server(
-        config={"num_rounds": 6},
+        config={"num_rounds": 2},
         strategy=strategy,
         force_final_distributed_eval = True,
     )
