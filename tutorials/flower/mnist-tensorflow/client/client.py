@@ -6,7 +6,10 @@ import tensorflow as tf
 import flwr as fl
 import sys
 
-SERVER_IP = sys.argv[1]
+if len(sys.argv) >= 2:
+    SERVER_IP = sys.argv[1]
+else:
+    SERVER_IP = os.getenv('SERVER_IP') 
 
 
 def main() -> None:
