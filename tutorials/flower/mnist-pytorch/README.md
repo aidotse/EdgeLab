@@ -22,11 +22,7 @@ To start the serverdocker now run these comands:
 sudo docker build --tag server-docker .
 docker run -p 8080:8080 -it -v $PWD/model_weights:/server/model_weights server-docker
 ````
-This will first build a docker Image with the tag server-docker, then the second command will create a container and start it. 
-The server is now prepared and you can start it by running:
-````bash
-python3 server.py
-````
+This will first build a docker Image with the tag server-docker, then the second command will create a container and start the server in it. 
 
 
 ## Setup the client_1 and client_2 (The AGX Jetson Xaviers)
@@ -38,13 +34,9 @@ cd EdgeLab/tutorials/flower/mnist-pytorch/client
 To start the clientdocker now run these comands
 ````bash
 sudo bash build.sh
-sudo bash run.sh
+sudo bash run.sh ip.address.server:8080
 ````
-This will first build a docker Image with the tag client-docker, then the second command will create a container and start it. 
-The server is now prepared and you can connect it to the server by running
-````bash
-python3 client.py ip.address.server:8080
-````
+This will first build a docker Image with the tag client-docker, then the second command will create a container and start the container with a running client.
 <strong>Note</strong>: ip.address.server is the adress of the server i.e. the Virtual Machine.
 
 Now SSH into the second AGX and do the axact same thing.
@@ -55,4 +47,4 @@ If a loadingbar appears the clients is now training.
 On the second line you can can check if the training happens on the cpu or the gpu. If it says cuda: 0 you are training on the GPU else it will say cpu.
 
 ## Saving the model and customising your strategy
-In this tutorial we customised the server strategy to save our models weights and you should be able to find them in your server-docker after the training. To find out more about how to change strategy or even customise it by yourself, visit flowers [docs](https://flower.dev/docs/strategies.html)
+In this tutorial we customised the server strategy to save our models weights and you should be able to find them in your server-folder after the training. To find out more about how to change strategy or even customise it by yourself, visit flowers [docs](https://flower.dev/docs/strategies.html)
