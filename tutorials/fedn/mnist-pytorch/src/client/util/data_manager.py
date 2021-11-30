@@ -51,7 +51,9 @@ def load_data(
     return DataLoader(dataset, **dataset_kwargs)
 
 
-def read_data(trainset=True, nr_examples=1000, data_path="data/mnist.npz"):
+def read_data(
+    trainset: bool = True, nr_examples: int = 1000, data_path: str = "data/mnist.npz"
+) -> torch.utils.data.dataset.Subset:
     """Helper function to read and preprocess data for training with Keras."""
 
     pack = np.load(data_path)

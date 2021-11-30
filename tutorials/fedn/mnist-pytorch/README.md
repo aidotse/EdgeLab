@@ -102,7 +102,7 @@ Omit the '--build' flag after the first time.
 ## Preparations for the client
 On, for example, your desktop clone the EdgeLab, this, repo
 ````bash
-git clone git@github.com:aidotse/EdgeLab.git
+git clone https://github.com/aidotse/EdgeLab.git
 cd tutorials/fedn/mnist-pytorch
 ````
 

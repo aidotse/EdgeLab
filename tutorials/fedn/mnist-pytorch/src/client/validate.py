@@ -5,18 +5,30 @@ import torch
 import torch.nn.functional as F
 import yaml
 
-# local
+
+from fedn.utils.pytorchhelper import PytorchHelper
+from models.mnist_pytorch_model import Net
 from util.transformations import np_to_weights
 from util.data_manager import load_data
 
 
-def validate(model, device, train_loader, test_loader, settings):
+def validate(
+    model: torch.nn.Module,
+    device: torch.device,
+    train_loader: torch.utils.data.dataloader.DataLoader,
+    test_loader: torch.utils.data.dataloader.DataLoader,
+    settings: dict,
+) -> dict:
     print("-- RUNNING VALIDATION --", flush=True)
     # The data, split between train and test sets. We are caching the partition in
     # the container home dir so that the same data subset is used for
     # each iteration.
 
-    def evaluate(model, device, data_loader):
+    def evaluate(
+        model: torch.nn.Module,
+        device: torch.device,
+        data_loader: torch.utils.data.dataloader.DataLoader,
+    ):
         model.eval()
         test_loss = 0
         correct = 0
@@ -64,9 +76,6 @@ if __name__ == "__main__":
             settings = dict(yaml.safe_load(fh))
         except yaml.YAMLError as e:
             raise (e)
-
-    from fedn.utils.pytorchhelper import PytorchHelper
-    from models.mnist_pytorch_model import Net
 
     helper = PytorchHelper()
 

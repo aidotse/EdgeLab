@@ -5,12 +5,19 @@ import torch
 import torch.nn.functional as F
 import yaml
 
-# local
+from fedn.utils.pytorchhelper import PytorchHelper
+from models.mnist_pytorch_model import Net
 from util.data_manager import load_data
 from util.transformations import np_to_weights, weights_to_np
 
 
-def train(model, device, train_loader, optimizer, settings):
+def train(
+    model: torch.nn.Module,
+    device: torch.device,
+    train_loader: torch.utils.data.dataloader.DataLoader,
+    optimizer: torch.optim,
+    settings: dict,
+) -> torch.nn.Module:
 
     print("-- RUNNING TRAINING --", flush=True)
 
@@ -45,9 +52,6 @@ if __name__ == "__main__":
             settings = dict(yaml.safe_load(fh))
         except yaml.YAMLError as e:
             raise (e)
-
-    from fedn.utils.pytorchhelper import PytorchHelper
-    from models.mnist_pytorch_model import Net
 
     helper = PytorchHelper()
 
