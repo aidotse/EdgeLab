@@ -20,7 +20,7 @@ cd EdgeLab/tutorials/flower/mnist-tensorflow/server
 To start the serverdocker now run these comands:
 ````bash
 sudo docker build --tag flower_tensorflow_server .
-sudo docker run -p 8080:8080 -it flower_tensorflow_server /bin/bash
+sudo docker run -p 8080:8080 -it -v $PWD/model_weights:/server/model_weights flower_tensorflow_server
 ````
 This will first build a docker Image with the tag server-docker, then the second command will create a container and start it. 
 The server is now prepared and you can start it by running:
