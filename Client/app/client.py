@@ -11,8 +11,8 @@ from torchvision import transforms
 from syft.frameworks.torch.fl import utils
 
 KEEP_LABELS_DICT = {
-    "alice": [0, 1, 2, 3],
-    "bob": [4, 5, 6],
+    "alice": [0],
+    "bob": [1],
     "testing": list(range(10)),
     None: list(range(10)),
 }
