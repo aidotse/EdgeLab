@@ -11,6 +11,6 @@ WORKDIR /app
 
 RUN pip3 install syft==0.2.5 -f https://download.pytorch.org/whl/torch_stable.html
 
-COPY server.py server.py
+COPY /app .
 
 CMD /bin/bash
