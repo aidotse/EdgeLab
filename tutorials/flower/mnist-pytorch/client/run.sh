@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE_NAME="client-docker"
+IMAGE_NAME="flower_pytotch_client"
 
 ROOT_DIR=$PWD
 
