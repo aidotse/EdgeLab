@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
-from torchvision.datasets import CIFAR10, MNIST
+from torchvision.datasets import MNIST
 
 from tqdm import tqdm
 import os
@@ -90,7 +90,7 @@ def test(net, testloader):
 
 
 def load_data():
-    """Load CIFAR-10 (training and test set)."""
+    """Load MNIST-10 (training and test set)."""
     transform = transforms.Compose(
         [transforms.ToTensor(), transforms.Normalize([0.5], [0.5])]
     )
@@ -112,7 +112,7 @@ def main():
     # Load model
     net = Net().to(DEVICE)
 
-    # Load data (CIFAR-10)
+    # Load data (MNIST-10)
     trainloader, testloader = load_data()
 
     # Flower client
