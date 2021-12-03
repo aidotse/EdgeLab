@@ -18,19 +18,15 @@ On the database, reducer and combiner host machines; clone and checkout appropri
 ````bash
 git clone https://github.com/scaleoutsystems/fedn.git
 cd fedn
-<!-- git checkout tags/v0.2.3 -b v0.2.3 -->
 git checkout tags/v0.3.0 -b v0.3.0
 ````
+<!-- git checkout tags/v0.2.3 -b v0.2.3 -->
 
 ## Deploy the base services (Minio and MongoDB)
 Log into the database host machine.
 
 Clone the FEDn repo and checkout the right version, see the 'Clone the FEDn repo' section above.
 
-<!-- The first time, for Docker communication do
-````bash
-docker network create fedn_default 
-```` -->
 For reference see the [FEDn documentation](https://github.com/scaleoutsystems/fedn).
 
 Build and launch the database inside a terminal multiplexer (eg., tmux)
@@ -61,10 +57,6 @@ In 'config/extra-hosts-reducer.yaml' set the IP of the combiner
 combiner: ip.address.combiner
 ````
 
-<!-- The first time, for Docker communication do
-````bash
-docker network create fedn_default 
-```` -->
 For reference see the [FEDn documentation](https://github.com/scaleoutsystems/fedn).
 
 Build and launch the reducer inside a terminal multiplexer (eg., tmux)
@@ -88,10 +80,6 @@ In 'config/settings-combiner.yaml' set the IP address of the reducer
 discover_host: ip.address.reducer
 ````    
 
-<!-- The first time, for Docker communication do
-````bash
-docker network create fedn_default 
-```` -->
 For reference see the [FEDn documentation](https://github.com/scaleoutsystems/fedn).
 
 Build and launch the combiner inside a terminal multiplexer (eg., tmux)
@@ -104,7 +92,7 @@ Omit the '--build' flag after the first time.
 On, for example, your desktop clone the EdgeLab, this, repo
 ````bash
 git clone https://github.com/aidotse/EdgeLab.git
-cd EdgeLab/tutorials/fedn/mnist-pytorch
+cd tutorials/fedn/mnist-pytorch
 ````
 
 Build the Docker image
