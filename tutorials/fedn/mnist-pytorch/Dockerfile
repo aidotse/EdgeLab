@@ -6,7 +6,8 @@ ARG username
 
 RUN python3 -m pip install --upgrade pip
 
-RUN pip install -e git://github.com/scaleoutsystems/fedn.git@v0.2.5#egg=fedn\&subdirectory=fedn
+#RUN pip install -e git://github.com/scaleoutsystems/fedn.git@v0.2.5#egg=fedn\&subdirectory=fedn
+RUN pip install -e git://github.com/scaleoutsystems/fedn.git@v0.3.0#egg=fedn\&subdirectory=fedn
 
 RUN groupadd --gid ${g_id} ${username}
 RUN useradd --uid ${u_id} --gid ${g_id} --shell /bin/bash --create-home ${username}
