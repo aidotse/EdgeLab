@@ -27,8 +27,6 @@ Log into the database host machine.
 
 Clone the FEDn repo and checkout the right version, see the 'Clone the FEDn repo' section above.
 
-For reference see the [FEDn documentation](https://github.com/scaleoutsystems/fedn).
-
 Build and launch the database inside a terminal multiplexer (eg., tmux)
 ````bash
 docker-compose -f config/base-services.yaml up --build
@@ -57,8 +55,6 @@ In 'config/extra-hosts-reducer.yaml' set the IP of the combiner
 combiner: ip.address.combiner
 ````
 
-For reference see the [FEDn documentation](https://github.com/scaleoutsystems/fedn).
-
 Build and launch the reducer inside a terminal multiplexer (eg., tmux)
 ````bash
 docker-compose -f config/reducer-dev.yaml -f config/extra-hosts-reducer.yaml up --build
@@ -79,8 +75,6 @@ In 'config/settings-combiner.yaml' set the IP address of the reducer
 ````bash
 discover_host: ip.address.reducer
 ````    
-
-For reference see the [FEDn documentation](https://github.com/scaleoutsystems/fedn).
 
 Build and launch the combiner inside a terminal multiplexer (eg., tmux)
 ````bash
