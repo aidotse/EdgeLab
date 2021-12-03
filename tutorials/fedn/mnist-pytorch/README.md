@@ -1,13 +1,13 @@
 # MNIST PyTorch - fully distributed federated learning
-In this tutorial we solve the [MNIST](http://yann.lecun.com/exdb/mnist/) classification problem in a federated setting using [FEDn](https://github.com/scaleoutsystems/fedn), version 0.3.0, with a minimal set-up; database, reducer, combiner and two clients. The classifier is implemented in [PyTorch](https://pytorch.org/) using the PyTorch [example](https://github.com/pytorch/examples/tree/master/mnist).
+In this tutorial we solve the [MNIST](http://yann.lecun.com/exdb/mnist/) classification problem in a federated setting using [FEDn](https://github.com/scaleoutsystems/fedn) with a minimal set-up; database, reducer, combiner and two clients. The classifier is implemented in [PyTorch](https://pytorch.org/) using the PyTorch [example](https://github.com/pytorch/examples/tree/master/mnist).
 
-| Machine/function     | Type           | IP address  | OS |
-| ------------- |:-------------------------|:----------------|:----------------|
-| Database      | virtual |  ip.address.database| Ubuntu 20.04.3 LTS |
-| Reducer      | virtual      |   ip.address.reducer | Ubuntu 20.04.3 LTS |
-| Combiner | virtual     |    ip.address.combiner | Ubuntu 20.04.3 LTS |
-| Client_1 | AGX Jetson Xavier     |  ip.address.client.1 | JetPack 4.6 |
-| Client_2 | AGX Jetson Xavier     |  ip.address.client.2 | JetPack 4.6 |
+| Machine/function     | Type           | IP address  |
+| ------------- |:-------------------------|:----------------|
+| Database      | virtual |  ip.address.database|
+| Reducer      | virtual      |   ip.address.reducer |
+| Combiner | virtual     |    ip.address.combiner |
+| Client_1 | AGX Jetson Xavier     |  ip.address.client.1 |
+| Client_2 | AGX Jetson Xavier     |  ip.address.client.2 |
 
 All machines residing on the same local network. Note that the IP addresses in the table above are 'variables' used in this tutorial -you will have to use addresses appropriate for your set-up. 
 
@@ -126,13 +126,13 @@ sh ./validate.sh.sh
 ````
 
 ## Clients
-Copy the '~/EdgeLab/tutorials/fedn/mnist-pytorch/src/fedn' directory to the clients.
+Copy the 'client/fedn' directory to the clients.
 
 Log into the client host machines.
 
-Go to the '~/fedn' directory.
+Go to the '~client/fedn' directory.
 
-In 'client.yaml' set the IP address of the reducer
+In 'remote/client.yaml' set the IP address of the reducer
 ````bash
 discover_host: ip.address.reducer
 ````
