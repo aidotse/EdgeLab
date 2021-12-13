@@ -83,13 +83,13 @@ docker-compose -f config/combiner-dev.yaml up --build
 Omit the '--build' flag after the first time.
 
 ## Preparations for the client
-On, for example, your desktop clone the EdgeLab, this, repo
+On, for example, your desktop PC clone the EdgeLab repo
 ````bash
 git clone https://github.com/aidotse/EdgeLab.git
 cd EdgeLab/tutorials/fedn/mnist-pytorch
 ````
 
-Build the Docker image
+Build the Docker image.
 ````bash
 sh ./package_client_code.sh
 ````
@@ -135,6 +135,7 @@ Build the Docker image
 ````bash
 sh ./build.sh
 ````
+This is only done once. 
 
 Start the clients
 ````bash
