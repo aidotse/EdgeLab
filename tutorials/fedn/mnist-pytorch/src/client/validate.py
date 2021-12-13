@@ -111,13 +111,15 @@ if __name__ == "__main__":
         "Training: Acc: {} \tLoss: {:.6f}".format(
             report["training_accuracy"],
             report["training_loss"],
-        )
+        ),
+        flush=True,
     )
     print(
         "Test: Acc: {} \tLoss: {:.6f}".format(
             report["test_accuracy"],
             report["test_loss"],
-        )
+        ),
+        flush=True,
     )
 
     with open(sys.argv[2], "w") as fh:
