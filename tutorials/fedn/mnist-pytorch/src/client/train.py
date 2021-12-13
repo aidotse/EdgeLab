@@ -38,7 +38,8 @@ def train(
                 epoch,
                 # loss.item(),
                 train_loss / len(train_loader.dataset),
-            )
+            ),
+            flush=True,
         )
 
     print("-- TRAINING COMPLETED --", flush=True)
