@@ -1,0 +1,5 @@
+tensorflow
+tensorflow-privacy
+scikit-learn 
+scipy 
+matplotlib
