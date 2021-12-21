@@ -32,7 +32,7 @@ You have to first specify the ip adress of the clinets machine. You also have to
 To launch a client, execute the runscript.
 
 ```
-bash run_client.sh SERVER_IP NUM_CLIENTS CLIENT_NAME
+bash run_client.sh CLIENT_IP SERVER_IP CLIENT_NAME
 ```
 
 
