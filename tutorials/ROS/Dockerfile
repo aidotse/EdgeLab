@@ -25,6 +25,7 @@ WORKDIR /home/ai_sweden_ws
 
 COPY run_server.sh run_server.sh
 COPY run_client.sh run_client.sh
+COPY run_gossip_client.sh run_gossip_client.sh
 
 # launch ros package
 CMD /bin/bash

@@ -1,0 +1,48 @@
+FROM nvidiajetson/l4t-ros-noetic-pytorch:r32.5
+
+RUN apt-get install python3-pip
+RUN apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran -y
+RUN apt-get install python3-pip
+RUN pip3 install -U pip testresources setuptools==49.6.0
+RUN pip3 install -U --no-deps numpy==1.19.4 future==0.18.2 mock==3.0.5 keras_preprocessing==1.1.2 keras_applications==1.0.8 gast==0.4.0 protobuf pybind11 cython pkgconfig
+
+RUN sudo env H5PY_SETUP_REQUIRES=0 pip3 install -U h5py==3.1.0
+RUN pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v46 tensorflow
+
+
+
+
+RUN pip3 install sklearn
+
+RUN /bin/bash -c '. /opt/ros/noetic/setup.bash &&\
+    mkdir -p /home/ai_sweden_ws/src &&\
+    cd /home/ai_sweden_ws &&\
+    catkin_make'
+
+RUN ["/bin/bash", "-c", ". /home/ai_sweden_ws/devel/setup.bash"]
+WORKDIR /home/ai_sweden_ws/src
+COPY DecentralizedAI DecentralizedAI
+
+RUN /bin/bash -c '. /opt/ros/noetic/setup.bash &&\
+    cd /home/ai_sweden_ws &&\
+    catkin_make'
+
+WORKDIR /home/ai_sweden_ws
+
+RUN apt-get update
+RUN sudo apt-get install openjdk-8-jdk -y
+RUN wget https://github.com/bazelbuild/bazel/releases/download/0.19.2/bazel-0.19.2-dist.zip
+RUN unzip bazel-0.19.2-dist.zip
+RUN env EXTRA_BAZEL_ARGS="--host_javabase=@local_jdk//:jdk"
+RUN bash ./compile.sh
+ENV PATH=/home/ai_sweden_ws/output${PATH:+:${PATH}}
+RUN echo $PATH
+RUN echo $PWD
+RUN pip3 install tensorflow-privacy==0.5.2
+
+COPY run_server.sh run_server.sh
+COPY run_client.sh run_client.sh
+COPY run_gossip_client.sh run_gossip_client.sh
+
+# launch ros package
+CMD /bin/bash

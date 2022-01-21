@@ -4,10 +4,10 @@
 # Modified   : 12.11.2021
 # By         : Andreas Persson <andreas.persson@ai.se>
 
+from sklearn.metrics import accuracy_score
 import rospy
 import numpy as np
 import tensorflow as tf
-from sklearn.metrics import accuracy_score
 from models.model import SequentialModel, ProbabilityModel
 from models.model import categorical_loss 
 from dataset_msgs.srv import GetDataset
