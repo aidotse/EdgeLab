@@ -13,7 +13,7 @@ Open up a terminal and execute one of the following command blocks on all device
 
 If you are planning on running an a viritual machine use the following commands:
 ```
-git clone https://github.com/aidotse/EdgeLearningROS.git
+git clone --branch ROS-Federated https://github.com/aidotse/EdgeLab.git
 cd EdgeLearningROS/ROS
 docker build --tag ros_container .
 docker run -it --rm --network host ros_container
