@@ -15,7 +15,7 @@ RUN /bin/bash -c '. /opt/ros/noetic/setup.bash &&\
 
 RUN ["/bin/bash", "-c", ". /home/ai_sweden_ws/devel/setup.bash"]
 WORKDIR /home/ai_sweden_ws/src
-COPY DecentralizedAI DecentralizedAI
+COPY ROS_DecentralizedAI ROS_DecentralizedAI
 
 RUN /bin/bash -c '. /opt/ros/noetic/setup.bash &&\
     cd /home/ai_sweden_ws &&\
