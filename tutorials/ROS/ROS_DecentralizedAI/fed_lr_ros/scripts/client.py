@@ -38,30 +38,23 @@ class Client:
         self.name = self.name.strip('/').rstrip('node')
         self.name = "".join(w.capitalize() for w in self.name.split('_'))
             
-        # Get portion of train data from dataset
-        rospy.loginfo("[{}::init] Waiting for dataset service...".format(self.name))
-        rospy.wait_for_service('/data/request')
-        get_dataset = rospy.ServiceProxy('/data/request', GetDataset)
         try:
             
             # Request data
-            resp = get_dataset(portion, "train")
-            self.x, self.y = [], []
-            for s in resp.dataset:
-                x, y = msg_to_np(s)
-                self.x.append(x)
-                self.y.append(y)
+            DATA_URL = 'https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz'
 
-            # Converting to arrays
-            self.x = np.asarray(self.x)
-            self.y = np.asarray(self.y)
+            path = tf.keras.utils.get_file('mnist.npz', DATA_URL)
+            with np.load(path) as data:
+                self.x = data['x_train']
+                self.y = data['y_train']
+
 
             # Normalize and add channel dimension
             self.x  = self.x / 255.
             self.x = self.x[..., tf.newaxis].astype("float32")
 
             # Convert labels to categorical hot vectors
-            self.num_classes = resp.num_classes
+            self.num_classes = 10
             self.y = tf.keras.utils.to_categorical(self.y.astype("int32"), num_classes = self.num_classes)
 
             # Print log
