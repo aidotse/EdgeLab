@@ -14,7 +14,7 @@ Open up a terminal and execute one of the following command blocks on all device
 If you are planning on running an a viritual machine use the following commands:
 ```
 git clone --branch ROS-Federated https://github.com/aidotse/EdgeLab.git
-cd EdgeLearningROS/ROS
+cd EdgeLab/tutorials/ROS
 docker build --tag ros_container .
 docker run -it --rm --network host ros_container
 ```
@@ -22,7 +22,7 @@ docker run -it --rm --network host ros_container
 If you are planning on running an a Nvidia AGX Jetson use the following commands:
 ```
 git clone --branch ROS-Federated https://github.com/aidotse/EdgeLab.git
-cd EdgeLearningROS/ROS
+cd EdgeLab/tutorials/ROS
 docker build -f Dockerfile.agx --tag ros_container .
 docker run -it --rm --network host ros_container
 ```
