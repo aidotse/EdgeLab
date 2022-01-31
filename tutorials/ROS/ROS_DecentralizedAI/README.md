@@ -1,6 +1,6 @@
 # Decentralized AI
 
-This repository is based of the repository: [Decentralized AI](https://www.ai.se/en/projects-9/decentralized-ai).  
+This repository is based of the repository: [Decentralized AI](https://github.com/aidotse/DecentralizedAI).  
 So far, this repository contains the following sub-folders:
 
 * _fed_lr_ros_: a testbed for traning TensorFlow models in *federated learning* settings using ROS.

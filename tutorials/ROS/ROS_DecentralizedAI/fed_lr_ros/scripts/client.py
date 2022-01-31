@@ -1,8 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# File       : client.py
-# Modified   : 12.11.2021
-# By         : Andreas Persson <andreas.persson@ai.se>
+#This script is based on a script created by Andreas Persson <andreas.persson@ai.se> which can be found in this repository: https://github.com/aidotse/DecentralizedAI
 
 import rospy
 import numpy as np
