@@ -19,11 +19,3 @@ A tutorial for setting up a federated learning system using tensorflow in edgela
 
 
 
-## Questions?
-
-__Q:__ What is _differential privacy_? \
-__A:__ See the tutorial [__tf_privacy__](https://github.com/aidotse/DecentralizedAI/tree/main/tf_privacy).
-
-__Q:__ What is _ROS_? \
-__A:__ *“The Robot Operating System (ROS) is a flexible framework for writing robot software. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms.”* -- [ROS Webpage](https://www.ros.org/about-ros/)
-
