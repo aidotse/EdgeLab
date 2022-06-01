@@ -38,6 +38,6 @@ Build the initial model
 ./init_seed.sh
 ````
 
-This will initial the model with random wight to the 'seed.npz' file.
+This will initiate the model with random wights and save the model to the 'seed.npz' file.
 
-The clinet code, 'package.tgz' and the initial model 'seed.npz' will be uploaded to the clinets via the FEDn dashboard.
+The client code, 'package.tgz' and the initial model 'seed.npz' will be uploaded to the clients via the FEDn dashboard.
