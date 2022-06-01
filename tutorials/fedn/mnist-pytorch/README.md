@@ -14,7 +14,7 @@ All machines residing on the same local network. Note that the IP addresses in t
 
 This is basically an extension of the [FEDn mnist-pytorch example](https://github.com/scaleoutsystems/fedn/tree/master/examples/mnist-pytorch). We recommend to go through this example before proceeding here.
 
-## Prerequsits and notes
+## Prerequisites
 
 You will need have docker and docker-compose installed, see for example [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
 
@@ -96,37 +96,12 @@ docker compose -f config/combiner-dev.yaml up -d
 
 ## Preparations for the client
 
-Follow the instructions in [README.md](local/README.md) Dowload the data, build the initial model and package the clinet code.
+Follow the instructions in [README.md](local/README.md) which will; download the data, build the initial model and package the client code.
 
 ## Clients
 
-On the clinets, clone
+Follow the instructions in [README.md](client/README.md) which will; upload the data to the clients and build and start the client docker images.
 
-````bash
-git clone https://github.com/aidotse/EdgeLab.git
-cd EdgeLab/tutorials/fedn/mnist-pytorch/client
-````
+## Run the training
 
-From your local machine copy '~/EdgeLab/tutorials/fedn/mnist-pytorch/local/data' to the clients '~/EdgeLab/tutorials/fedn/mnist-pytorch/client/data'.
-
-In 'client.yaml' set the IP address of the reducer
-
-````bash
-discover_host: ip.address.reducer
-````
-
-Build the Docker image
-
-````bash
-sh ./build.sh
-````
-
-Modify the mount point of the data in the 'run.sh' script, poiting to either '~/data/clients/1' or '~/data/clients/2'.
-
-Start the clients
-
-````bash
-sh ./run.sh
-````
-
-Now you should be ready to start a simulation in the FEDn dashboard.
+Now you should be ready to start the training in the FEDn dashboard.
