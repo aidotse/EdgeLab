@@ -1,0 +1,17 @@
+**/__pycache__
+**/.bash_history
+**/.cache/       
+**/.config/
+**/.vscode/
+**/runs/
+**/dep
+**/venv
+**/work
+**/output
+**/data
+*.png
+*.svg
+*.csv
+*.tar
+*.npz
+*.tgz
