@@ -1,0 +1,4 @@
+torch
+torchvision
+fire
+#-e git+https://github.com/scaleoutsystems/fedn.git@v0.3.2#egg=fedn\&subdirectory=fedn
